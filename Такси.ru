@@ -1,15 +1,14 @@
 from num2words import num2words
 import itertools
-
-N = int(input("Введите количество сотрудников:"))
+count = int(input("Введите количество сотрудников:"))
 distancia = list(map(int, input("Введите расстояния от работы до домов сотрудников (через пробел): ").split()))
 tarif = list(map(int, input("Введите тарифы за проезд одного километра в такси (через пробел): ").split()))
 min_stoimost = float('inf')
 min_taxi = []
-for p in itertools.ps(range(N)):
+for p in itertools.ps(range(count)):
     total_stoimost=0
     org=[]
-    for i in range(N):
+    for i in range(count):
         taxi = p[i]
         stoimost = distancia[i] * tarif[taxi]
         total_stoimost += stoimost
