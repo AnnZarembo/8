@@ -1,8 +1,10 @@
 from num2words import num2words
 import itertools
+
 count = int(input("Введите количество сотрудников:"))
 distancia = list(map(int, input("Введите расстояния от работы до домов сотрудников (через пробел): ").split()))
 tarif = list(map(int, input("Введите тарифы за проезд одного километра в такси (через пробел): ").split()))
+
 min_stoimost = float('inf')
 min_taxi = []
 for p in itertools.ps(range(count)):
@@ -16,6 +18,7 @@ for p in itertools.ps(range(count)):
     if total_stoimost < min_stoimost:
         min_stoimost = total_stoimost
         min_taxi = org
+
 def convert(summa):
     if summa < 1 or summa > 100000:
         return "Сумма должна быть от 1 до 100 000"
@@ -29,6 +32,7 @@ def convert(summa):
         valuta = "рублей"
     result = words.capitalize() + " " + valuta
     return result
+    
 result = convert(min_stoimost)
 print(*min_taxi)
 print(min_stoimost)
